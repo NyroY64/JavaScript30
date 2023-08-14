@@ -10,9 +10,13 @@
 
     <div class="clock">
       <div class="clock-face">
+
         <div class="hand hour-hand"></div>
+
         <div class="hand min-hand"></div>
+
         <div class="hand second-hand"></div>
+
       </div>
     </div>
 
@@ -67,7 +71,54 @@
 
   </style>
 
+
   <script>
+    const hourHand=document.querySelector('.hour-hand');
+    const minuteHand=document.querySelector('.min-hand');
+    const secHand=document.querySelector('.second-hand');
+
+    const hands=document.querySelectorAll('.hand');
+
+    var sheet = document.createElement('style')
+    sheet.innerHTML = ".hand2 {width: 50%;height: 6px;background: black;position: absolute;top: 50%;transform-origin: right;}";
+    document.body.appendChild(sheet);
+
+    
+    
+
+    hands.forEach(hand =>{
+      hand.classList.replace('hand','hand2');
+    });
+
+    
+  function Clock() {
+  
+
+    let D=new Date();
+
+    
+    let hour=(D.getHours()%12);
+    let min=D.getMinutes();
+    let sec=D.getSeconds();
+
+    hourHand.setAttribute('style',`transform:rotate( ${hour*30 +90}deg )`);
+    minuteHand.setAttribute('style',`transform:rotate( ${min*6 +90}deg )`);
+    secHand.setAttribute('style',`transform:rotate( ${sec*6 +90}deg )`);
+  }
+  
+  setInterval(Clock, 1000);
+
+  Clock();
+
+    
+    
+    
+
+    
+
+
+
+
 
 
   </script>
