@@ -36,13 +36,46 @@
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
     
-    // Array.prototype.filter()
+
+    function isFrom1500(inventor) {
+      if((inventor.year >1499) && (inventor.year < 1600)){
+        return true;
+      }else return false;
+    }
+    // const filter1=inventors.filter(isFrom1500);
+    //or 
+
+    const filter1=inventors.filter((inventor)=>{
+      if((inventor.year >1499) && (inventor.year < 1600)){
+        return true;
+      }else return false;
+
+    })
     // 1. Filter the list of inventors for those who were born in the 1500's
 
-    // Array.prototype.map()
+    const filter2=inventors.map((inventor)=>{
+      return `${inventor.first} ${inventor.last}`;
+    })
     // 2. Give us an array of the inventors first and last names
 
-    // Array.prototype.sort()
+    
+    const filter3=inventors.sort((a,b)=>{
+
+      //a and b are element from the array we want to sort so each one is considred an object here 
+
+      if ( (a.year-b.year) >0 ) {
+        return +1;
+        //In simple terms If the yearOfBirth of the a(inventor) > b(inventor) it means he(invA) is younger so we move him down in the resulting array
+        
+      }else if((a.year - b.year) < 0){
+
+        
+        return -1;
+        // & If the yearOfBirth of the a(inventor) < b(inventor) it means he(invA) is older so we move him up in the resulting array
+
+      }
+      
+    });
     // 3. Sort the inventors by birthdate, oldest to youngest
 
     // Array.prototype.reduce()
